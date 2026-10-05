@@ -62,7 +62,7 @@ ccs.Armature = ccs.Node.extend(/** @lends ccs.Armature# */{
      */
     ctor: function (name, parentBone) {
         cc.Node.prototype.ctor.call(this);
-        this._name = "";
+        this._kvName = "";
         this._topBoneList = [];
         this._armatureIndexDic = {};
         this._offsetPoint = cc.p(0, 0);
@@ -89,7 +89,7 @@ ccs.Armature = ccs.Node.extend(/** @lends ccs.Armature# */{
         this._boneDic = {};
         this._topBoneList.length = 0;
 
-        //this._name = name || "";
+        //this._kvName = name || "";
         var armatureDataManager = ccs.armatureDataManager;
 
         var animationData;

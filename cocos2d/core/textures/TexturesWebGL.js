@@ -54,7 +54,7 @@ cc._tmp.WebGLTexture2D = function () {
         _pixelFormat: null,
         _pixelsWide: 0,
         _pixelsHigh: 0,
-        _name: "",
+        _kvName: "",
         _contentSize: null,
         maxS: 0,
         maxT: 0,
@@ -212,7 +212,7 @@ cc._tmp.WebGLTexture2D = function () {
          */
         description: function () {
             var _t = this;
-            return "<cc.Texture2D | Name = " + _t._name + " | Dimensions = " + _t._pixelsWide + " x " + _t._pixelsHigh
+            return "<cc.Texture2D | Name = " + _t._kvName + " | Dimensions = " + _t._pixelsWide + " x " + _t._pixelsHigh
                 + " | Coordinates = (" + _t.maxS + ", " + _t.maxT + ")>";
         },
 

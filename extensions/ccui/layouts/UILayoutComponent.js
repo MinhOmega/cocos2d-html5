@@ -69,7 +69,7 @@ ccui.LayoutComponent = cc.Component.extend({
     _isPercentOnly: false,
 
     ctor: function () {
-        this._name = ccui.LayoutComponent.NAME;
+        this._kvName = ccui.LayoutComponent.NAME;
     },
 
     init: function () {

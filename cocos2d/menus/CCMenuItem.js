@@ -132,7 +132,7 @@ cc.MenuItem = cc.Node.extend(/** @lends cc.MenuItem# */{
      * @return {cc.Rect}
      */
     rect: function () {
-        var locPosition = this._position, locContentSize = this._contentSize, locAnchorPoint = this._anchorPoint;
+        var locPosition = this._kvPosition, locContentSize = this._contentSize, locAnchorPoint = this._anchorPoint;
         return cc.rect(locPosition.x - locContentSize.width * locAnchorPoint.x,
             locPosition.y - locContentSize.height * locAnchorPoint.y,
             locContentSize.width, locContentSize.height);

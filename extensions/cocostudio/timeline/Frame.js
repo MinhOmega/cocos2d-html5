@@ -666,13 +666,13 @@ ccs.RotationSkewFrame.create = function () {
  */
 ccs.PositionFrame = ccs.Frame.extend({
 
-    _position: null,
+    _kvPosition: null,
     _betweenX: null,
     _betweenY: null,
 
     ctor: function () {
         ccs.Frame.prototype.ctor.call(this);
-        this._position = cc.p(0, 0);
+        this._kvPosition = cc.p(0, 0);
     },
 
     /**
@@ -683,11 +683,11 @@ ccs.PositionFrame = ccs.Frame.extend({
         if (!this._node)
             return;
 
-        this._node.setPosition(this._position);
+        this._node.setPosition(this._kvPosition);
 
         if (this._tween) {
-            this._betweenX = nextFrame._position.x - this._position.x;
-            this._betweenY = nextFrame._position.y - this._position.y;
+            this._betweenX = nextFrame._kvPosition.x - this._kvPosition.x;
+            this._betweenY = nextFrame._kvPosition.y - this._kvPosition.y;
         }
     },
 
@@ -698,8 +698,8 @@ ccs.PositionFrame = ccs.Frame.extend({
     _onApply: function (percent) {
         if (this._node && (this._betweenX !== 0 || this._betweenY !== 0)) {
             var p = cc.p(0, 0);
-            p.x = this._position.x + this._betweenX * percent;
-            p.y = this._position.y + this._betweenY * percent;
+            p.x = this._kvPosition.x + this._betweenX * percent;
+            p.y = this._kvPosition.y + this._betweenY * percent;
 
             this._node.setPosition(p);
         }
@@ -712,7 +712,7 @@ ccs.PositionFrame = ccs.Frame.extend({
      */
     clone: function () {
         var frame = new ccs.PositionFrame();
-        frame.setPosition(this._position);
+        frame.setPosition(this._kvPosition);
 
         frame._cloneProperty(this);
 
@@ -724,7 +724,7 @@ ccs.PositionFrame = ccs.Frame.extend({
      * @param {cc.p} position
      */
     setPosition: function (position) {
-        this._position = position;
+        this._kvPosition = position;
     },
 
     /**
@@ -732,7 +732,7 @@ ccs.PositionFrame = ccs.Frame.extend({
      * @returns {cc.p}
      */
     getPosition: function () {
-        return this._position;
+        return this._kvPosition;
     },
 
     /**
@@ -740,7 +740,7 @@ ccs.PositionFrame = ccs.Frame.extend({
      * @param {Number} x
      */
     setX: function (x) {
-        this._position.x = x;
+        this._kvPosition.x = x;
     },
 
     /**
@@ -748,7 +748,7 @@ ccs.PositionFrame = ccs.Frame.extend({
      * @returns {Number}
      */
     getX: function () {
-        return this._position.x;
+        return this._kvPosition.x;
     },
 
     /**
@@ -756,7 +756,7 @@ ccs.PositionFrame = ccs.Frame.extend({
      * @param {Number} y
      */
     setY: function (y) {
-        this._position.y = y;
+        this._kvPosition.y = y;
     },
 
     /**
@@ -764,7 +764,7 @@ ccs.PositionFrame = ccs.Frame.extend({
      * @returns {Number}
      */
     getY: function () {
-        return this._position.y;
+        return this._kvPosition.y;
     }
 
 });

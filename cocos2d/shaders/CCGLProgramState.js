@@ -149,7 +149,7 @@ cc.GLProgramState = function (glprogram) {
         var uniform = glprogram._glContext.getActiveUniform(glprogram._programObj, i);
         if (uniform.name.indexOf("CC_") !== 0) {
             uniform._location = glprogram._glContext.getUniformLocation(glprogram._programObj, uniform.name);
-            uniform._location._name = uniform.name;
+            uniform._location._kvName = uniform.name;
             var uniformValue = new cc.UniformValue(uniform, glprogram);
             this._uniforms[uniform.name] = uniformValue;
         }

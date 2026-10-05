@@ -30,7 +30,7 @@
  */
 ccs.ActionObject = ccs.Class.extend(/** @lends ccs.ActionObject# */{
     _actionNodeList: null,
-    _name: "",
+    _kvName: "",
     _loop: false,
     _pause: false,
     _playing: false,
@@ -45,7 +45,7 @@ ccs.ActionObject = ccs.Class.extend(/** @lends ccs.ActionObject# */{
      */
     ctor: function () {
         this._actionNodeList = [];
-        this._name = "";
+        this._kvName = "";
         this._loop = false;
         this._pause = false;
         this._playing = false;
@@ -60,7 +60,7 @@ ccs.ActionObject = ccs.Class.extend(/** @lends ccs.ActionObject# */{
      * @param {string} name
      */
     setName: function (name) {
-        this._name = name;
+        this._kvName = name;
     },
 
     /**
@@ -68,7 +68,7 @@ ccs.ActionObject = ccs.Class.extend(/** @lends ccs.ActionObject# */{
      * @returns {string}
      */
     getName: function () {
-        return this._name;
+        return this._kvName;
     },
 
     /**

@@ -26,14 +26,14 @@
 
 cc.BuilderSequence = cc.Class.extend({
     _duration:0,
-    _name:"",
+    _kvName:"",
     _sequenceId:0,
     _chainedSequenceId:0,
     _callbackChannel:null,
     _soundChannel:null,
 
     ctor:function(){
-        this._name = "";
+        this._kvName = "";
     },
 
     getDuration:function(){
@@ -44,10 +44,10 @@ cc.BuilderSequence = cc.Class.extend({
     },
 
     getName:function(){
-        return this._name;
+        return this._kvName;
     },
     setName:function(name){
-        this._name = name;
+        this._kvName = name;
     },
 
     getSequenceId:function(){
@@ -80,7 +80,7 @@ cc.BuilderSequence = cc.Class.extend({
 });
 
 cc.BuilderSequenceProperty = cc.Class.extend({
-    _name : null,
+    _kvName : null,
     _type:0,
     _keyFrames:null,
 
@@ -90,15 +90,15 @@ cc.BuilderSequenceProperty = cc.Class.extend({
 
     init:function(){
         this._keyFrames = [];
-        this._name = "";
+        this._kvName = "";
     },
 
     getName:function(){
-        return this._name;
+        return this._kvName;
     },
 
     setName :function(name){
-        this._name = name;
+        this._kvName = name;
     },
 
     getType:function(){

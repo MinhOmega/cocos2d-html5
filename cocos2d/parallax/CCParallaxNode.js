@@ -173,7 +173,7 @@ cc.ParallaxNode = cc.Node.extend(/** @lends cc.ParallaxNode# */{
         obj.setChild(child);
         this.parallaxArray.push(obj);
 
-	    child.setPosition(this._position.x * ratio.x + offset.x, this._position.y * ratio.y + offset.y);
+	    child.setPosition(this._kvPosition.x * ratio.x + offset.x, this._kvPosition.y * ratio.y + offset.y);
 
         cc.Node.prototype.addChild.call(this, child, z, child.tag);
     },
@@ -222,7 +222,7 @@ cc.ParallaxNode = cc.Node.extend(/** @lends cc.ParallaxNode# */{
     },
 
     _absolutePosition:function () {
-        var ret = this._position;
+        var ret = this._kvPosition;
         var cn = this;
         while (cn.parent !== null) {
             cn = cn.parent;

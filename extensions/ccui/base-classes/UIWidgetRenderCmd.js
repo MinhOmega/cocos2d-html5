@@ -62,8 +62,8 @@ cc.game.addEventListener(cc.game.EVENT_RENDERER_INITED, function () {
                     if (widgetParent) {
                         var parentSize = widgetParent.getContentSize();
                         if (parentSize.width !== 0 && parentSize.height !== 0) {
-                            node._position.x = parentSize.width * node._positionPercent.x;
-                            node._position.y = parentSize.height * node._positionPercent.y;
+                            node._kvPosition.x = parentSize.width * node._positionPercent.x;
+                            node._kvPosition.y = parentSize.height * node._positionPercent.y;
                         }
                     }
                 }
@@ -112,8 +112,8 @@ cc.game.addEventListener(cc.game.EVENT_RENDERER_INITED, function () {
                     if (widgetParent) {
                         var parentSize = widgetParent.getContentSize();
                         if (parentSize.width !== 0 && parentSize.height !== 0) {
-                            node._position.x = parentSize.width * node._positionPercent.x;
-                            node._position.y = parentSize.height * node._positionPercent.y;
+                            node._kvPosition.x = parentSize.width * node._positionPercent.x;
+                            node._kvPosition.y = parentSize.height * node._positionPercent.y;
                         }
                     }
                 }

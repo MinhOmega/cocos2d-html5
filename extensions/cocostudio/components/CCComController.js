@@ -34,7 +34,7 @@ ccs.ComController = ccs.Component.extend(/** @lends ccs.ComController# */{
      */
     ctor: function () {
         cc.Component.prototype.ctor.call(this);
-        this._name = "ComController";
+        this._kvName = "ComController";
         ccs.ComController.prototype.init.call(this);
     },
 

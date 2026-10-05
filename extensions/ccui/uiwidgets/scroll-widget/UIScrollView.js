@@ -384,11 +384,11 @@ ccui.ScrollView = ccui.Layout.extend(/** @lends ccui.ScrollView# */{
     _isInContainer: function (widget) {
         if (!this._clippingEnabled)
             return true;
-        var wPos = widget._position,
+        var wPos = widget._kvPosition,
             wSize = widget._contentSize,
             wAnchor = widget._anchorPoint,
             size = this._customSize,
-            pos = this._innerContainer._position,
+            pos = this._innerContainer._kvPosition,
             bottom = 0, left = 0;
         if (
             // Top

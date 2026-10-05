@@ -524,8 +524,8 @@ cc.BuilderAnimationManager = cc.Class.extend({
                 x = value[0];
                 y = value[1];
                 cc.getAbsolutePosition(x, y, nType, this.getContainerSize(node.getParent()), propName, _pos);
-                node._position.x = _pos.x;
-                node._position.y = _pos.y;
+                node._kvPosition.x = _pos.x;
+                node._kvPosition.y = _pos.y;
             } else if (propName === "scale") {
                 getArr = this._getBaseValue(node, propName);
                 nType = getArr[2];

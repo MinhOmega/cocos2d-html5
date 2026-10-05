@@ -96,7 +96,7 @@ ccs.Bone = ccs.Node.extend(/** @lends ccs.Bone# */{
     init: function (name) {
 //        cc.Node.prototype.init.call(this);
         if (name)
-            this._name = name;
+            this._kvName = name;
         this._tweenData = new ccs.FrameData();
 
         this._tween = new ccs.Tween(this);
@@ -175,8 +175,8 @@ ccs.Bone = ccs.Node.extend(/** @lends ccs.Bone# */{
 
             var locWorldInfo = this._worldInfo;
             locWorldInfo.copy(locTweenData);
-            locWorldInfo.x = locTweenData.x + this._position.x;
-            locWorldInfo.y = locTweenData.y + this._position.y;
+            locWorldInfo.x = locTweenData.x + this._kvPosition.x;
+            locWorldInfo.y = locTweenData.y + this._kvPosition.y;
             locWorldInfo.scaleX = locTweenData.scaleX * this._scaleX;
             locWorldInfo.scaleY = locTweenData.scaleY * this._scaleY;
             locWorldInfo.skewX = locTweenData.skewX + this._skewX + cc.degreesToRadians(this._rotationX);

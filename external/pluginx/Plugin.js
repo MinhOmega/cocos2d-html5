@@ -115,7 +115,7 @@
          * @expose
          */
         getPluginName: function(){
-            return this._name;
+            return this._kvName;
         },
 
         /**

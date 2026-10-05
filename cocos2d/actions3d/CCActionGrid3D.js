@@ -406,7 +406,7 @@ cc.FlipY3D.create = cc.flipY3D;
  */
 cc.Lens3D = cc.Grid3DAction.extend(/** @lends cc.Lens3D# */{
     //lens center position
-    _position:null,
+    _kvPosition:null,
     _radius:0,
     //lens effect. Defaults to 0.7 - 0 means no effect, 1 is very strong effect
     _lensEffect:0,
@@ -425,7 +425,7 @@ cc.Lens3D = cc.Grid3DAction.extend(/** @lends cc.Lens3D# */{
     ctor:function (duration, gridSize, position, radius) {
         cc.GridAction.prototype.ctor.call(this);
 
-        this._position = cc.p(0, 0);
+        this._kvPosition = cc.p(0, 0);
 		radius !== undefined && this.initWithDuration(duration, gridSize, position, radius);
     },
 
@@ -458,7 +458,7 @@ cc.Lens3D = cc.Grid3DAction.extend(/** @lends cc.Lens3D# */{
      * @return {cc.Point}
      */
     getPosition:function () {
-        return this._position;
+        return this._kvPosition;
     },
 
     /**
@@ -466,9 +466,9 @@ cc.Lens3D = cc.Grid3DAction.extend(/** @lends cc.Lens3D# */{
      * @param {cc.Point} position
      */
     setPosition:function (position) {
-        if (!cc.pointEqualToPoint(position, this._position)) {
-            this._position.x = position.x;
-            this._position.y = position.y;
+        if (!cc.pointEqualToPoint(position, this._kvPosition)) {
+            this._kvPosition.x = position.x;
+            this._kvPosition.y = position.y;
             this._dirty = true;
         }
     },
@@ -509,8 +509,8 @@ cc.Lens3D = cc.Grid3DAction.extend(/** @lends cc.Lens3D# */{
                     locPos.x = i;
                     locPos.y = j;
                     v = this.originalVertex(locPos);
-                    vect.x = this._position.x - v.x;
-                    vect.y = this._position.y - v.y;
+                    vect.x = this._kvPosition.x - v.x;
+                    vect.y = this._kvPosition.y - v.y;
                     r = cc.pLength(vect);
 
                     if (r < locRadius) {
@@ -580,7 +580,7 @@ cc.Lens3D.create = cc.lens3D;
  */
 cc.Ripple3D = cc.Grid3DAction.extend(/** @lends cc.Ripple3D# */{
     /* center position */
-    _position: null,
+    _kvPosition: null,
     _radius: 0,
     _waves: 0,
     _amplitude: 0,
@@ -599,7 +599,7 @@ cc.Ripple3D = cc.Grid3DAction.extend(/** @lends cc.Ripple3D# */{
     ctor:function (duration, gridSize, position, radius, waves, amplitude) {
         cc.GridAction.prototype.ctor.call(this);
 
-        this._position = cc.p(0, 0);
+        this._kvPosition = cc.p(0, 0);
 		amplitude !== undefined && this.initWithDuration(duration, gridSize, position, radius, waves, amplitude);
     },
 
@@ -608,7 +608,7 @@ cc.Ripple3D = cc.Grid3DAction.extend(/** @lends cc.Ripple3D# */{
      * @return {cc.Point}
      */
     getPosition:function () {
-        return this._position;
+        return this._kvPosition;
     },
 
     /**
@@ -616,8 +616,8 @@ cc.Ripple3D = cc.Grid3DAction.extend(/** @lends cc.Ripple3D# */{
      * @param {cc.Point} position
      */
     setPosition:function (position) {
-        this._position.x = position.x;
-        this._position.y = position.y;
+        this._kvPosition.x = position.x;
+        this._kvPosition.y = position.y;
     },
 
     /**
@@ -690,8 +690,8 @@ cc.Ripple3D = cc.Grid3DAction.extend(/** @lends cc.Ripple3D# */{
                 locPos.y = j;
                 v = this.originalVertex(locPos);
 
-                tempPos.x = this._position.x - v.x;
-                tempPos.y = this._position.y - v.y;
+                tempPos.x = this._kvPosition.x - v.x;
+                tempPos.y = this._kvPosition.y - v.y;
                 r = cc.pLength(tempPos);
 
                 if (r < locRadius) {
@@ -1112,7 +1112,7 @@ cc.Waves.create = cc.waves;
  */
 cc.Twirl = cc.Grid3DAction.extend(/** @lends cc.Twirl# */{
     /* twirl center */
-    _position: null,
+    _kvPosition: null,
     _twirls: 0,
     _amplitude: 0,
     _amplitudeRate: 0,
@@ -1129,7 +1129,7 @@ cc.Twirl = cc.Grid3DAction.extend(/** @lends cc.Twirl# */{
     ctor:function (duration, gridSize, position, twirls, amplitude) {
         cc.GridAction.prototype.ctor.call(this);
 
-        this._position = cc.p(0, 0);
+        this._kvPosition = cc.p(0, 0);
 		amplitude !== undefined && this.initWithDuration(duration, gridSize, position, twirls, amplitude);
     },
 
@@ -1138,7 +1138,7 @@ cc.Twirl = cc.Grid3DAction.extend(/** @lends cc.Twirl# */{
      * @return {cc.Point}
      */
     getPosition:function () {
-        return this._position;
+        return this._kvPosition;
     },
 
     /**
@@ -1146,8 +1146,8 @@ cc.Twirl = cc.Grid3DAction.extend(/** @lends cc.Twirl# */{
      * @param {cc.Point} position
      */
     setPosition:function (position) {
-        this._position.x = position.x;
-        this._position.y = position.y;
+        this._kvPosition.x = position.x;
+        this._kvPosition.y = position.y;
     },
 
     /**
@@ -1200,7 +1200,7 @@ cc.Twirl = cc.Grid3DAction.extend(/** @lends cc.Twirl# */{
      * @param {Number}  dt
      */
     update:function (dt) {
-        var c = this._position;
+        var c = this._kvPosition;
         var locSizeWidth = this._gridSize.width, locSizeHeight = this._gridSize.height, locPos = cc.p(0, 0);
         var amp = 0.1 * this._amplitude * this._amplitudeRate;
         var locTwirls = this._twirls;

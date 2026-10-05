@@ -137,7 +137,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
     _rotationY: 0.0,
     _scaleX: 1.0,
     _scaleY: 1.0,
-    _position: null,
+    _kvPosition: null,
 
     _normalizedPosition:null,
     _usingNormalizedPosition: false,
@@ -175,7 +175,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
 
     _className: "Node",
     _showNode: false,
-    _name: "",                     ///<a string label, an user defined string to identify this node
+    _kvName: "",                     ///<a string label, an user defined string to identify this node
 
     _realOpacity: 255,
     _realColor: null,
@@ -192,7 +192,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
         var _t = this;
         _t._anchorPoint = cc.p(0, 0);
         _t._contentSize = cc.size(0, 0);
-        _t._position = cc.p(0, 0);
+        _t._kvPosition = cc.p(0, 0);
         _t._normalizedPosition = cc.p(0, 0);
         _t._children = [];
 
@@ -576,7 +576,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
      *    node.setPosition(size.width/2, size.height/2);
      */
     setPosition: function (newPosOrxValue, yValue) {
-        var locPosition = this._position;
+        var locPosition = this._kvPosition;
         if (yValue === undefined) {
             if (locPosition.x === newPosOrxValue.x && locPosition.y === newPosOrxValue.y)
                 return;
@@ -596,7 +596,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
      * <p>
      * Sets the position (x,y) using values between 0 and 1.                                                <br/>
      * The positions in pixels is calculated like the following:                                            <br/>
-     *   _position = _normalizedPosition * parent.getContentSize()
+     *   _kvPosition = _normalizedPosition * parent.getContentSize()
      * </p>
      * @param {cc.Point|Number} posOrX
      * @param {Number} [y]
@@ -620,7 +620,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
      * @return {cc.Point} The position (x,y) of the node in OpenGL coordinates
      */
     getPosition: function () {
-        return cc.p(this._position);
+        return cc.p(this._kvPosition);
     },
 
     /**
@@ -637,7 +637,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
      * @return {Number}
      */
     getPositionX: function () {
-        return this._position.x;
+        return this._kvPosition.x;
     },
 
     /**
@@ -646,7 +646,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
      * @param {Number} x The new position in x axis
      */
     setPositionX: function (x) {
-        this._position.x = x;
+        this._kvPosition.x = x;
         this._renderCmd.setDirtyFlag(cc.Node._dirtyFlags.transformDirty);
     },
 
@@ -656,7 +656,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
      * @return {Number}
      */
     getPositionY: function () {
-        return this._position.y;
+        return this._kvPosition.y;
     },
 
     /**
@@ -665,7 +665,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
      * @param {Number} y The new position in y axis
      */
     setPositionY: function (y) {
-        this._position.y = y;
+        this._kvPosition.y = y;
         this._renderCmd.setDirtyFlag(cc.Node._dirtyFlags.transformDirty);
     },
 
@@ -949,7 +949,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
      * @param {String} name
      */
     setName: function (name) {
-        this._name = name;
+        this._kvName = name;
     },
 
     /**
@@ -958,7 +958,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
      * @returns {string} A string that identifies the node.
      */
     getName: function () {
-        return this._name;
+        return this._kvName;
     },
 
     /**
@@ -1153,7 +1153,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
 
         var locChildren = this._children;
         for (var i = 0, len = locChildren.length; i < len; i++) {
-            if (locChildren[i]._name === name)
+            if (locChildren[i]._kvName === name)
                 return locChildren[i];
         }
         return null;
@@ -1173,7 +1173,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
         localZOrder = localZOrder === undefined ? child._localZOrder : localZOrder;
         var name, setTag = false;
         if (tag === undefined) {
-            name = child._name;
+            name = child._kvName;
         } else if (typeof tag === 'string') {
             name = tag;
             tag = undefined;
@@ -2559,7 +2559,7 @@ cc.Node = cc.Class.extend(/** @lends cc.Node# */{
             length = children.length;
         for (var i = 0; i < length; i++) {
             child = children[i];
-            if (child._name.indexOf(searchName) !== -1) {
+            if (child._kvName.indexOf(searchName) !== -1) {
                 if (!needRecursive) {
                     // terminate enumeration if callback return true
                     if (callback(child)) {

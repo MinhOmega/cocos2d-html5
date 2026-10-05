@@ -286,13 +286,13 @@ ccs.ActionFrame = ccs.Class.extend(/** @lends ccs.ActionFrame# */{
  * @extends ccs.ActionFrame
  */
 ccs.ActionMoveFrame = ccs.ActionFrame.extend(/** @lends ccs.ActionMoveFrame# */{
-    _position: null,
+    _kvPosition: null,
     /**
      * Construction of ccs.ActionMoveFrame
      */
     ctor: function () {
         ccs.ActionFrame.prototype.ctor.call(this);
-        this._position = cc.p(0, 0);
+        this._kvPosition = cc.p(0, 0);
         this.frameType = ccs.FRAME_TYPE_MOVE;
     },
 
@@ -303,11 +303,11 @@ ccs.ActionMoveFrame = ccs.ActionFrame.extend(/** @lends ccs.ActionMoveFrame# */{
      */
     setPosition: function (pos, y) {
         if (y === undefined) {
-            this._position.x = pos.x;
-            this._position.y = pos.y;
+            this._kvPosition.x = pos.x;
+            this._kvPosition.y = pos.y;
         } else {
-            this._position.x = pos;
-            this._position.y = y;
+            this._kvPosition.x = pos;
+            this._kvPosition.y = y;
         }
     },
 
@@ -316,7 +316,7 @@ ccs.ActionMoveFrame = ccs.ActionFrame.extend(/** @lends ccs.ActionMoveFrame# */{
      * @returns {cc.Point}
      */
     getPosition: function () {
-        return this._position;
+        return this._kvPosition;
     },
 
     /**
@@ -325,7 +325,7 @@ ccs.ActionMoveFrame = ccs.ActionFrame.extend(/** @lends ccs.ActionMoveFrame# */{
      * @returns {cc.MoveTo}
      */
     getAction: function (duration) {
-        return this._getEasingAction(cc.moveTo(duration, this._position));
+        return this._getEasingAction(cc.moveTo(duration, this._kvPosition));
     }
 });
 

@@ -182,8 +182,8 @@ cc.Node.RenderCmd.prototype = {
 
         if (node._usingNormalizedPosition && node._parent) {
             var conSize = node._parent._contentSize;
-            node._position.x = node._normalizedPosition.x * conSize.width;
-            node._position.y = node._normalizedPosition.y * conSize.height;
+            node._kvPosition.x = node._normalizedPosition.x * conSize.width;
+            node._kvPosition.y = node._normalizedPosition.y * conSize.height;
             node._normalizedPositionDirty = false;
         }
 
@@ -194,8 +194,8 @@ cc.Node.RenderCmd.prototype = {
         var a = 1, b = 0, c = 0, d = 1;
         if (hasRotation || hasSkew) {
             // position 
-            t.tx = node._position.x;
-            t.ty = node._position.y;
+            t.tx = node._kvPosition.x;
+            t.ty = node._kvPosition.y;
 
             // rotation
             if (hasRotation) {
@@ -269,8 +269,8 @@ cc.Node.RenderCmd.prototype = {
             t.b = 0;
             t.c = 0;
             t.d = sy;
-            t.tx = node._position.x;
-            t.ty = node._position.y;
+            t.tx = node._kvPosition.x;
+            t.ty = node._kvPosition.y;
 
             if (appX || appY) {
                 t.tx -= t.a * appX;

@@ -38,7 +38,7 @@ ccs.ComRender = ccs.Component.extend(/** @lends ccs.ComRender# */{
     ctor: function (node, comName) {
         cc.Component.prototype.ctor.call(this);
         this._render = node;
-        this._name = comName;
+        this._kvName = comName;
         this.isRenderer = true;
         ccs.ComRender.prototype.init.call(this);
     },

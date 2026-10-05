@@ -30,7 +30,7 @@
  */
 cc.Component = cc.Class.extend(/** @lends cc.Component# */{
     _owner: null,
-    _name: "",
+    _kvName: "",
     _enabled: true,
 
     /**
@@ -38,7 +38,7 @@ cc.Component = cc.Class.extend(/** @lends cc.Component# */{
      */
     ctor:function(){
         this._owner = null;
-        this._name = "";
+        this._kvName = "";
         this._enabled = true;
     },
 
@@ -97,7 +97,7 @@ cc.Component = cc.Class.extend(/** @lends cc.Component# */{
      * @returns {string}
      */
     getName:function(){
-        return this._name;
+        return this._kvName;
     } ,
 
     /**
@@ -105,7 +105,7 @@ cc.Component = cc.Class.extend(/** @lends cc.Component# */{
      * @param {String} name
      */
     setName:function(name){
-         this._name = name;
+         this._kvName = name;
     } ,
 
     /**

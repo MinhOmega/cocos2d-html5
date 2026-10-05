@@ -209,7 +209,7 @@ ccui.PageView = ccui.ListView.extend(/** @lends ccui.PageView# */{
     _onItemListChanged: function () {
         ccui.ListView.prototype._onItemListChanged.call(this);
         if (this._indicator) {
-            this._indicator.reset(this._items.length);
+            this._indicator.reset(this._kvItems.length);
         }
     },
 
@@ -236,7 +236,7 @@ ccui.PageView = ccui.ListView.extend(/** @lends ccui.PageView# */{
 
         ccui.ScrollView.prototype._handleReleaseLogic.call(this, touchPoint);
 
-        if (this._items.length <= 0)
+        if (this._kvItems.length <= 0)
             return;
 
         var touchMoveVelocity = this._flattenVectorByDirection(this._calculateTouchMoveVelocity());
@@ -264,7 +264,7 @@ ccui.PageView = ccui.ListView.extend(/** @lends ccui.PageView# */{
                 else {
                     --this._curPageIdx;
                 }
-                this._curPageIdx = Math.min(this._curPageIdx, this._items.length);
+                this._curPageIdx = Math.min(this._curPageIdx, this._kvItems.length);
                 this._curPageIdx = Math.max(this._curPageIdx, 0);
                 this.scrollToItem(this._curPageIdx);
             }

@@ -70,7 +70,7 @@ ccs.ComExtensionData = ccs.Component.extend({
 
     _customProperty: null,
     _timelineData: null,
-    _name: "ComExtensionData",
+    _kvName: "ComExtensionData",
 
     ctor: function(){
         this._customProperty = "";

@@ -88,8 +88,8 @@
                             node._positionPercent.y = position.y + anchor.y;
                         }
                         anchorPP = parent._renderCmd._anchorPointInPoints;
-                        node._position.x += anchorPP.x;
-                        node._position.y += anchorPP.y;
+                        node._kvPosition.x += anchorPP.x;
+                        node._kvPosition.y += anchorPP.y;
                         node.setNodeDirty();
                     }
                     parent.addChild(node);
@@ -161,10 +161,10 @@
         widget.setActionTag(options["actiontag"]);
         widget.setTouchEnabled(options["touchAble"]);
 
-        widget._name = options["name"] || "default";
+        widget._kvName = options["name"] || "default";
 
-        widget._position.x = options["x"] || 0;
-        widget._position.y = options["y"] || 0;
+        widget._kvPosition.x = options["x"] || 0;
+        widget._kvPosition.y = options["y"] || 0;
         widget._scaleX = options["scaleX"] || 1;
         widget._scaleY = options["scaleY"] || 1;
         widget._rotationX = widget._rotationY = options["rotation"] || 0;

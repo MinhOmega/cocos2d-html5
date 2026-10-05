@@ -285,7 +285,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
 
     _addUniformLocation: function (name) {
         var location = this._glContext.getUniformLocation(this._programObj, name);
-        if (location) location._name = name;
+        if (location) location._kvName = name;
         this._uniforms[name] = location;
         return location;
     },
@@ -328,7 +328,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith1i: function (location, i1) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, i1)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -347,7 +347,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith2i: function (location, i1, i2) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, i1, i2)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -367,7 +367,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith3i: function (location, i1, i2, i3) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, i1, i2, i3)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -388,7 +388,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith4i: function (location, i1, i2, i3, i4) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, i1, i2, i3, i4)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -407,7 +407,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith2iv: function (location, intArray) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, intArray)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -425,7 +425,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith3iv: function (location, intArray) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, intArray)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -443,7 +443,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith4iv: function (location, intArray) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, intArray)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -470,7 +470,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith1f: function (location, f1) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, f1)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -489,7 +489,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith2f: function (location, f1, f2) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, f1, f2)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -509,7 +509,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith3f: function (location, f1, f2, f3) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, f1, f2, f3)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -530,7 +530,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith4f: function (location, f1, f2, f3, f4) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, f1, f2, f3, f4)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -549,7 +549,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith2fv: function (location, floatArray) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, floatArray)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -567,7 +567,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith3fv: function (location, floatArray) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, floatArray)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -585,7 +585,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWith4fv: function (location, floatArray) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, floatArray)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -604,7 +604,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWithMatrix2fv: function (location, matrixArray) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, matrixArray)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -622,7 +622,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWithMatrix3fv: function (location, matrixArray) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, matrixArray)) {
                 if (isString) location = this.getUniformLocationForName(name);
@@ -640,7 +640,7 @@ cc.GLProgram = cc.Class.extend(/** @lends cc.GLProgram# */{
      */
     setUniformLocationWithMatrix4fv: function (location, matrixArray) {
         var isString = typeof location === 'string';
-        var name = isString ? location : location && location._name;
+        var name = isString ? location : location && location._kvName;
         if (name) {
             if (this._updateUniform(name, matrixArray)) {
                 if (isString) location = this.getUniformLocationForName(name);

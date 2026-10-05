@@ -39,7 +39,7 @@ ccs.ComAttribute = ccs.Component.extend(/** @lends ccs.ComAttribute# */{
         cc.Component.prototype.ctor.call(this);
         this._jsonDict = {};
         this._filePath = "";
-        this._name = "CCComAttribute";
+        this._kvName = "CCComAttribute";
         ccs.ComAttribute.prototype.init.call(this);
     },
 

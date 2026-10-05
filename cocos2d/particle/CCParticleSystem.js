@@ -1628,8 +1628,8 @@ cc.ParticleSystem = cc.Node.extend(/** @lends cc.ParticleSystem# */{
         if (this.positionType === cc.ParticleSystem.TYPE_FREE)
             particle.startPos = this.convertToWorldSpace(this._pointZeroForParticle);
         else if (this.positionType === cc.ParticleSystem.TYPE_RELATIVE) {
-            particle.startPos.x = this._position.x;
-            particle.startPos.y = this._position.y;
+            particle.startPos.x = this._kvPosition.x;
+            particle.startPos.y = this._kvPosition.y;
         }
 
         // direction
@@ -1741,8 +1741,8 @@ cc.ParticleSystem = cc.Node.extend(/** @lends cc.ParticleSystem# */{
         if (this.positionType === cc.ParticleSystem.TYPE_FREE) {
             cc.pIn(currentPosition, this.convertToWorldSpace(this._pointZeroForParticle));
         } else if (this.positionType === cc.ParticleSystem.TYPE_RELATIVE) {
-            currentPosition.x = this._position.x;
-            currentPosition.y = this._position.y;
+            currentPosition.x = this._kvPosition.x;
+            currentPosition.y = this._kvPosition.y;
         }
 
         if (this._visible) {
@@ -1837,8 +1837,8 @@ cc.ParticleSystem = cc.Node.extend(/** @lends cc.ParticleSystem# */{
                     // translate newPos to correct position, since matrix transform isn't performed in batchnode
                     // don't update the particle with the new position information, it will interfere with the radius and tangential calculations
                     if (this._batchNode) {
-                        newPos.x += this._position.x;
-                        newPos.y += this._position.y;
+                        newPos.x += this._kvPosition.x;
+                        newPos.y += this._kvPosition.y;
                     }
                     this._renderCmd.updateParticlePosition(selParticle, newPos);
 

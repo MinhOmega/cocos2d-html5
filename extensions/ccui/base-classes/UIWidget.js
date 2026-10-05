@@ -118,7 +118,7 @@ ccui.Widget = ccui.ProtectedNode.extend(/** @lends ccui.Widget# */{
     _touchEventListener: null,
     _touchEventSelector: null,
 
-    _name: "default",
+    _kvName: "default",
     _widgetType: null,
     _actionTag: 0,
     _customSize: null,
@@ -142,7 +142,7 @@ ccui.Widget = ccui.ProtectedNode.extend(/** @lends ccui.Widget# */{
     _flippedX: false,
     _flippedY: false,
     _opacity: 255,
-    _highlight: false,
+    _kvHighlight: false,
 
     _touchEventCallback: null,
     _clickEventListener: null,
@@ -701,7 +701,7 @@ ccui.Widget = ccui.ProtectedNode.extend(/** @lends ccui.Widget# */{
      * @returns {boolean} true if the widget is highlighted, false if the widget is not highlighted .
      */
     isHighlighted: function () {
-        return this._highlight;
+        return this._kvHighlight;
     },
 
     /**
@@ -709,11 +709,11 @@ ccui.Widget = ccui.ProtectedNode.extend(/** @lends ccui.Widget# */{
      * @param highlight true if the widget is highlighted, false if the widget is not highlighted.
      */
     setHighlighted: function (highlight) {
-        if (highlight === this._highlight)
+        if (highlight === this._kvHighlight)
             return;
-        this._highlight = highlight;
+        this._kvHighlight = highlight;
         if (this._bright) {
-            if (this._highlight)
+            if (this._kvHighlight)
                 this.setBrightStyle(ccui.Widget.BRIGHT_STYLE_HIGH_LIGHT);
             else
                 this.setBrightStyle(ccui.Widget.BRIGHT_STYLE_NORMAL);
@@ -1006,7 +1006,7 @@ ccui.Widget = ccui.ProtectedNode.extend(/** @lends ccui.Widget# */{
         if (this._propagateTouchEvents)
             this.propagateTouchEvent(ccui.Widget.TOUCH_ENDED, this, touch);
 
-        var highlight = this._highlight;
+        var highlight = this._kvHighlight;
         this.setHighlighted(false);
         if (highlight)
             this._releaseUpEvent();

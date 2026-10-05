@@ -176,7 +176,7 @@
         },
 
         _syncPosition: function () {
-            var locPosition = this._position,
+            var locPosition = this._kvPosition,
                 pos = this._body.GetPosition(),
                 x = pos.x * this._PTMRatio,
                 y = pos.y * this._PTMRatio;
@@ -337,7 +337,7 @@
         },
 
         _syncPosition: function () {
-            var locPosition = this._position, locBody = this._body;
+            var locPosition = this._kvPosition, locBody = this._body;
             if (locPosition.x !== locBody.p.x || locPosition.y !== locBody.p.y) {
                 cc.Sprite.prototype.setPosition.call(this, locBody.p.x, locBody.p.y);
             }
